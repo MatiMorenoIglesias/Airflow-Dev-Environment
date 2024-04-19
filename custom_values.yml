@@ -1,0 +1,25 @@
+airflow:
+  extraVolumeMounts:
+    - name: local-dags
+      mountPath: /opt/airflow/dags/
+  extraVolumes:
+    - name: local-dags
+      hostPath:
+        path: /mnt/host/dags
+  config:
+    AIRFLOW__WEBSERVER__BASE_URL: "http://localhost"
+    ENV: "dev"
+ingress:
+  enabled: true
+  web:
+    annotation:
+      kubernetes.io/ingress.class: "nginx"
+    host: localhost
+    tls:
+      enabled: true
+  flower:
+    annotation:
+      kubernetes.io/ingress.class: "nginx"
+    host: localhost
+    tls:
+      enabled: true

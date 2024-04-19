@@ -1,0 +1,9 @@
+{
+    "process": {
+        "template": "hello-world",
+        "values": {
+            "namespace": "airflow",
+            "workflow_name": "second_workflow"
+        }
+    }
+}
